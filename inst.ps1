@@ -19,8 +19,18 @@ elseif ($param1 -eq "u" -Or $param1 -eq "-u" -Or $param1 -eq "U" -Or $param1 -eq
 	powershell -Command "winget upgrade"
 	powershell -Command "winget upgrade --all --include-unknown"
 }
-elseif ($param1 -eq "c" -Or $param1 -eq "-c" -Or $param1 -eq "C" -Or $param1 -eq "-C")
+elseif ($param1 -eq "d" -Or $param1 -eq "-d" -Or $param1 -eq "D" -Or $param1 -eq "-D")
 {
+	Write-Host "Running Dianostics" -ForegroundColor Green
 	dism /Online /Cleanup-Image /RestoreHealth
 	sfc /scannow
+}
+elseif ($param1 -eq "h" -Or $param1 -eq "-h" -Or $param1 -eq "H" -Or $param1 -eq "-H" -Or $param1 -eq " ")
+{
+	Write-Host "This Program is meant to assist in using a new or current computer:`n
+	Layout ./inst.ps1 -[Option]`n
+	[f,-f,F,-F] - First install for a new computer, installs new software like discord and visual studio`n
+	Detects if it is my laptop using the name assigned to my desktop and laptop`n
+	[u,-u,U,-U] - Updates curreent programs installed using package manager`n
+	[d,-d,D,-D] - Runs dianostic scans on computer" -ForegroundColor Blue
 }
