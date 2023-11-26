@@ -39,7 +39,7 @@ elseif ($param1 -eq "d" -Or $param1 -eq "-d" -Or $param1 -eq "D" -Or $param1 -eq
 	dism /Online /Cleanup-Image /RestoreHealth
 	sfc /scannow
 }
-elseif ($param1 -eq "h" -Or $param1 -eq "-h" -Or $param1 -eq "H" -Or $param1 -eq "-H" -Or $param1 -eq " ")
+elseif ($param1 -eq "h" -Or $param1 -eq "-h" -Or $param1 -eq "H" -Or $param1 -eq "-H" -Or $param1 -eq $null)
 {
 	Write-Host "This Program is meant to assist in using a new or current computer:`n
 	Layout ./inst.ps1 -[Option]`n
