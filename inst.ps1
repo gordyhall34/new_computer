@@ -1,4 +1,6 @@
 $name = $env:computername
+$path = Split-Path -Parent $MyInvocation.MyCommand.Path
+Write-Host $path
 Write-Host "Computer Name:" $name -ForegroundColor Green
 $param1 = $args[0]
 Write-Host "Argument:" $param1 -ForegroundColor Green
@@ -6,12 +8,24 @@ if ($param1 -eq "f" -Or $param1 -eq "-f" -Or $param1 -eq "F" -Or $param1 -eq "-F
 {
 	if ($name -eq "ARTHUR")
 	{
-		powershell -Command "C:\Users\james\OneDrive\Documents\14_personal\02_scriptsPWR\01_Fresh\freshLap.ps1 'pwrshell'"
+		powershell -Command $path"\freshLap.ps1 'pwrshell'"
 	}
 	elseif ($name -eq "BELL")
 	{
-		powershell -Command "C:\Users\james\OneDrive\Documents\14_personal\02_scriptsPWR\01_Fresh\freshDesk.ps1 'pwrshell'"
+		powershell -Command $path"\freshDesk.ps1 'pwrshell'"
 		
+	}
+	elseif ($name -ne "ARTHUR" -Or "BELL")
+	{
+		$option = Read-Host "Is this a laptop or desktop: "
+		if ($option -eq "laptop")
+		{
+			powershell -Command $path"\freshLap.ps1 'pwrshell'"
+		}
+		elseif ($option -eq "desktop")
+		{
+			powershell -Command $path"\freshDesk.ps1 'pwrshell'"
+		}
 	}
 }
 elseif ($param1 -eq "u" -Or $param1 -eq "-u" -Or $param1 -eq "U" -Or $param1 -eq "-U")
