@@ -38,3 +38,11 @@ winget install Google.NearbyShare -e
 
 Write-Host "Steam" -ForegroundColor Green
 winget install Valve.Steam -e 
+
+Write-Host "Git" -ForegroundColor Green
+winget install --id Git.Git -e
+
+Write-Host "Python" -ForegroundColor Green
+winget install -e --id Python.Python.3.11 --scope machine
+
+Write-Host "Editing Features" -ForegroundColor Green
