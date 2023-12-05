@@ -35,6 +35,8 @@ elseif ($param1 -eq "u" -Or $param1 -eq "-u" -Or $param1 -eq "U" -Or $param1 -eq
 }
 elseif ($param1 -eq "d" -Or $param1 -eq "-d" -Or $param1 -eq "D" -Or $param1 -eq "-D")
 {
+	Write-Host "Getting Event Report" -ForegroundColor Green
+	Get-EventLog -LogName System -EntryType Error
 	Write-Host "Running Dianostics" -ForegroundColor Green
 	dism /Online /Cleanup-Image /RestoreHealth
 	sfc /scannow
