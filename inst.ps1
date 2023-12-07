@@ -3,9 +3,9 @@ $path = Split-Path -Parent $MyInvocation.MyCommand.Path
 Write-Host $path
 Write-Host "Computer Name:" $name -ForegroundColor Green
 $param1 = $args[0]
-Write-Host "Argument:" $param1 -ForegroundColor Green
 if ($param1 -eq "f" -Or $param1 -eq "-f" -Or $param1 -eq "F" -Or $param1 -eq "-F")
 {
+	Write-Host "Argument: Fresh Install for "$name -ForegroundColor Green
 	if ($name -eq "ARTHUR")
 	{
 		powershell -Command $path"\freshLap.ps1 'pwrshell'"
@@ -30,11 +30,13 @@ if ($param1 -eq "f" -Or $param1 -eq "-f" -Or $param1 -eq "F" -Or $param1 -eq "-F
 }
 elseif ($param1 -eq "u" -Or $param1 -eq "-u" -Or $param1 -eq "U" -Or $param1 -eq "-U")
 {
+	Write-Host "Argument: Update" -ForegroundColor Green
 	powershell -Command "winget upgrade"
 	powershell -Command "winget upgrade --all --include-unknown"
 }
 elseif ($param1 -eq "d" -Or $param1 -eq "-d" -Or $param1 -eq "D" -Or $param1 -eq "-D")
 {
+	Write-Host "Argument: Diagnostics" -ForegroundColor Green
 	Write-Host "Getting Event Report" -ForegroundColor Green
 	Get-EventLog -LogName System -EntryType Error
 	Write-Host "Running Dianostics" -ForegroundColor Green
@@ -43,6 +45,7 @@ elseif ($param1 -eq "d" -Or $param1 -eq "-d" -Or $param1 -eq "D" -Or $param1 -eq
 }
 elseif ($param1 -eq "h" -Or $param1 -eq "-h" -Or $param1 -eq "H" -Or $param1 -eq "-H" -Or $param1 -eq $null)
 {
+	Write-Host "Argument: Help" -ForegroundColor Green
 	Write-Host "This Program is meant to assist in using a new or current computer:`n
 	Layout ./inst.ps1 -[Option]`n
 	[f,-f,F,-F] - First install for a new computer, installs new software like discord and visual studio`n
