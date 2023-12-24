@@ -1,3 +1,6 @@
+$programs = "discord", "GNU.Nano","Notepad++","JanDeDobbeleer.OhMyPosh","Terminal-Icons",
+"Microsoft.Powershell","Microsoft.PowerToys","Microsoft.VisualStudioCode","Microsoft.VisualStudio.2022.Community",
+"GIMP","Google.NearbyShare","Valve.Steam","Git.Git","Python.Python.3.11"
 Write-Host "Installing Programs" -ForegroundColor Green
 
 Write-Host "Discord" -ForegroundColor Green
